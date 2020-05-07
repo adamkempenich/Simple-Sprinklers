@@ -1,6 +1,6 @@
 /**
 *    Simple Sprinklers - Child - SmartThings
-*    Created for Zooz
+* 	 Created for Zooz
 *
 *    Author:
 *        Adam Kempenich
@@ -10,7 +10,7 @@ definition(
     name:"Simple Sprinklers Setup",
     namespace: "Zooz",
     author: "Adam Kempenich",
-    description: "Tap and install the parent app, not this one!",
+    description: "Water different sections of your lawn, one at a time.",
     category: "Convenience",
     
     parent: "Zooz:Simple Sprinklers",
@@ -145,7 +145,7 @@ def initialize(){
         def formattedTime = startTime.split(":")
         def hours = formattedTime[0].substring(formattedTime[0].length() - 2)
         def minutes = formattedTime[1].substring(0, 2)
-        def days = "${days.toString().replaceAll("(\\s+)|(\\[)|(\\])","")}"
+        def days = days.toString().replaceAll('(\\s+)|(\\[)|(\\])|(\\")',"")
 
         schedule("0 ${minutes} ${hours} ? * ${days} *", beginSprinklerProcess)
         logDebug "scheduling schedule(0 ${minutes} ${hours} ? * ${days} *, startSprinkler)"
