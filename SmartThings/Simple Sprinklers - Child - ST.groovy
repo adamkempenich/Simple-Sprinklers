@@ -232,11 +232,12 @@ def endSprinkler(){
     
     if( state.currentSprinkler <= 16 && state.finishedRunning == false){
         logDebug "Starting ${state.currentSprinkler + 1} in ${sprinklerPause} minutes."
-        state.currentSprinkler = state.currentSprinkler + 1
-        
+
+		state.currentSprinkler = state.currentSprinkler + 1
+
         sprinklerPause > 0 ?  runIn(60 * sprinklerPause, startSprinkler) : startSprinkler()
     } else {
-        logDebug "<b>Today's sprinkler routine has completed.</b>"
+        logDebug "Today's sprinkler routine has completed."
     }
 }
 
@@ -246,7 +247,9 @@ def checkIfDone( sprinklerSet ){
     logDebug "Checking if next sprinkler set has any devices set to run..."
     
     log.trace "checking if done"
-    this."getSprinkler${sprinklerSet}"().toString() == 'null' ? state.finishedRunning = true : null
+    if(this."getSprinkler${sprinklerSet}"().toString() == 'null' || this."getSprinkler${sprinklerSet}"().toString() == '' || this."getSprinkler${sprinklerSet}"().toString() == null){
+    	state.finishedRunning = true
+    } else{ state.finishedRunning = false }
 }
 
 private logDebug( text ){
