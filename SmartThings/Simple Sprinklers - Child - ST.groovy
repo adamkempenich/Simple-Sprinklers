@@ -232,7 +232,7 @@ def endSprinkler(){
     
     if( state.currentSprinkler <= 16 && state.finishedRunning == false){
         logDebug "Starting ${state.currentSprinkler + 1} in ${sprinklerPause} minutes."
-        state.currentSprinkler++
+        state.currentSprinkler = state.currentSprinkler + 1
         
         sprinklerPause > 0 ?  runIn(60 * sprinklerPause, startSprinkler) : startSprinkler()
     } else {
