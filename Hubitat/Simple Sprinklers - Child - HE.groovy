@@ -245,7 +245,7 @@ def checkIfDone( sprinklerSet ){
     logDebug "Checking if next sprinkler set has any devices set to run..."
     
     log.trace "checking if done"
-    if(this."getSprinkler${sprinklerSet}"().toString() == 'null' || this."getSprinkler${sprinklerSet}"().toString() == '' || this."getSprinkler${sprinklerSet}"().toString() == null || this."getSprinkler${i}"().toString() == '[null, null]'){
+    if(this."getSprinkler${sprinklerSet}"().toString() == 'null' || this."getSprinkler${sprinklerSet}"().toString() == '' || this."getSprinkler${sprinklerSet}"().toString() == null || this."getSprinkler${sprinklerSet}"().toString() == '[null, null]'){
     	state.finishedRunning = true
     } else{ state.finishedRunning = false }
 }
