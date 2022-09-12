@@ -40,7 +40,6 @@ def childSetup() {
                 input "startSwitch", "capability.switch", title: "Which switch?", multiple:false, required: false
         }
             
-        
         section() {   
             paragraph "<hr><h2>Select Sprinklers</h2>"
             input "sprinkler1", "capability.switch", title: "Turn on these switches...", multiple:true, required: false
@@ -114,6 +113,13 @@ def childSetup() {
                 input "sprinkler16valve", "capability.valve", title: "Open these valves...", multiple:true, required: false, submitOnChange: true
             }
             
+            paragraph "<hr><h2>Rain delay</h2>"
+            HashMap varMap = getAllGlobalVars()
+            List varList = []
+            varMap.each {
+                varList << it.key
+            }
+            input "rainDelayVariable", "enum", title: "Do not run automation when this variable is greater than 0", options: varList.sort(), multiple: false, required: false, submitOnChange: true
             
             paragraph "<hr><h2>Emergency shutoff</h2>"
             input "stopSwitch", "capability.switch", title: "Disable a running automation when this switch turns on", multiple:false, required: false
@@ -121,19 +127,17 @@ def childSetup() {
                     description: "Logs data for debugging. (Default: On)", defaultValue: true,
                     required: true, displayDuringSetup: true)
 
-            label title: "<h2>Enter a name for this setup (optional)</h2>", required: false
-            
+            label title: "<h2>Enter a name for this setup (optional)</h2>", required: false  
         }
-
-
     }
-
 }
 
 def initialize(){
     log.info("Initializing with settings: ${settings}")
     state.currentSprinkler = 0
     state.finishedRunning = false
+
+    addInUseGlobalVar(rainDelayVariable)
     
     unsubscribe()
     unschedule()
@@ -159,7 +163,12 @@ def initialize(){
 
 def beginSprinklerProcess(){
     // Starts the sprinkler process from the beginning
-    
+    def rainDelayDays = getGlobalVar(rainDelayVariable).value
+    logDebug "Rain delay days: ${rainDelayDays}"
+    if (rainDelayDays != null && rainDelayDays != 0){
+        logDebug "Rain delay is active. Not running automation."
+        return
+    }
     logDebug "Beginning scheduled sprinklers"
     
     allOff()
