@@ -189,12 +189,10 @@ def updated() {
     initialize()
 }
 
-
 def startHandler(evt){
     // The switch to turn on the sprinklers was enabled
     
     evt.value == "on" ? beginSprinklerProcess() : null
-
 }
 
 def stopHandler(evt){
@@ -203,8 +201,6 @@ def stopHandler(evt){
         state.finishedRunning = true
         endSprinkler()
     }
-
-
 }
 
 def allOff(){
@@ -217,8 +213,6 @@ def allOff(){
             this."setSprinkler${i}"('off')
         } else { break }
     }
-    
-
 }
 
 def startSprinkler(){
