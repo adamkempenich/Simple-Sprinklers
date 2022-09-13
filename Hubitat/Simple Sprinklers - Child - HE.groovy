@@ -44,73 +44,85 @@ def childSetup() {
             paragraph "<hr><h2>Select Sprinklers</h2>"
             input "sprinkler1", "capability.switch", title: "Turn on these switches...", multiple:true, required: false
             input "sprinkler1valve", "capability.valve", title: "Open these valves...", multiple:true, required: false
-            
-            paragraph "<h2>For this many minutes...</h2>"
-            input "sprinklerDuration", "number", title: "Duration (minutes)", required: true, defaultValue: 30
+            input "sprinkler1Duration", "number", title: "For this many minutes...", required: true, defaultValue: 30
             
             paragraph "<h2>Then, wait for this many minutes...</h2>"
             input "sprinklerPause", "number", title: "Duration (minutes)", required: true, defaultValue: 5
             
-            
             paragraph "<h2>After waiting, repeat for these sprinkler(s)</h2>"
             input "sprinkler2", "capability.switch", title: "Turn on these switches...", multiple:true, required: false, submitOnChange: true
             input "sprinkler2valve", "capability.valve", title: "Open these valves...", multiple:true, required: false, submitOnChange: true
+            input "sprinkler2Duration", "number", title: "For this many minutes...", required: true, defaultValue: 30, submitOnChange: true
             
             if(settings.sprinkler2 || settings.sprinkler2valve){
                 input "sprinkler3", "capability.switch", title: "Turn on these switches...", multiple:true, required: false, submitOnChange: true
                 input "sprinkler3valve", "capability.valve", title: "Open these valves...", multiple:true, required: false, submitOnChange: true
+                input "sprinkler3Duration", "number", title: "For this many minutes...", required: true, defaultValue: 30, submitOnChange: true
             }
              if(settings.sprinkler3 || settings.sprinkler3valve){
                 input "sprinkler4", "capability.switch", title: "Turn on these switches...", multiple:true, required: false, submitOnChange: true
                 input "sprinkler4valve", "capability.valve", title: "Open these valves...", multiple:true, required: false, submitOnChange: true
+                input "sprinkler4Duration", "number", title: "For this many minutes...", required: true, defaultValue: 30, submitOnChange: true
             }
              if(settings.sprinkler4 || settings.sprinkler4valve){
                 input "sprinkler5", "capability.switch", title: "Turn on these switches...", multiple:true, required: false, submitOnChange: true
                 input "sprinkler5valve", "capability.valve", title: "Open these valves...", multiple:true, required: false, submitOnChange: true
+                input "sprinkler5Duration", "number", title: "For this many minutes...", required: true, defaultValue: 30, submitOnChange: true
             }
              if(settings.sprinkler5 || settings.sprinkler5valve){
                 input "sprinkler6", "capability.switch", title: "Turn on these switches...", multiple:true, required: false, submitOnChange: true
                 input "sprinkler6valve", "capability.valve", title: "Open these valves...", multiple:true, required: false, submitOnChange: true
+                input "sprinkler6Duration", "number", title: "For this many minutes...", required: true, defaultValue: 30, submitOnChange: true
             }
              if(settings.sprinkler6 || settings.sprinkler6valve){
                 input "sprinkler7", "capability.switch", title: "Turn on these switches...", multiple:true, required: false, submitOnChange: true
                 input "sprinkler7valve", "capability.valve", title: "Open these valves...", multiple:true, required: false, submitOnChange: true
+                input "sprinkler7Duration", "number", title: "For this many minutes...", required: true, defaultValue: 30, submitOnChange: true
             }
              if(settings.sprinkler7 || settings.sprinkler7valve){
                 input "sprinkler8", "capability.switch", title: "Turn on these switches...", multiple:true, required: false, submitOnChange: true
                 input "sprinkler8valve", "capability.valve", title: "Open these valves...", multiple:true, required: false, submitOnChange: true
+                input "sprinkler8Duration", "number", title: "For this many minutes...", required: true, defaultValue: 30, submitOnChange: true
             }
              if(settings.sprinkler8 || settings.sprinkler8valve){
                 input "sprinkler9", "capability.switch", title: "Turn on these switches...", multiple:true, required: false, submitOnChange: true
                 input "sprinkler9valve", "capability.valve", title: "Open these valves...", multiple:true, required: false, submitOnChange: true
+                input "sprinkler9Duration", "number", title: "For this many minutes...", required: true, defaultValue: 30, submitOnChange: true
             }
              if(settings.sprinkler9 || settings.sprinkler9valve){
                 input "sprinkler10", "capability.switch", title: "Turn on these switches...", multiple:true, required: false, submitOnChange: true
                 input "sprinkler10valve", "capability.valve", title: "Open these valves...", multiple:true, required: false, submitOnChange: true
+                input "sprinkler10Duration", "number", title: "For this many minutes...", required: true, defaultValue: 30, submitOnChange: true
             }
              if(settings.sprinkler10 || settings.sprinkler10valve){
                 input "sprinkler11", "capability.switch", title: "Turn on these switches...", multiple:true, required: false, submitOnChange: true
                 input "sprinkler11valve", "capability.valve", title: "Open these valves...", multiple:true, required: false, submitOnChange: true
+                input "sprinkler11Duration", "number", title: "For this many minutes...", required: true, defaultValue: 30, submitOnChange: true
             }
              if(settings.sprinkler11 || settings.sprinkler11valve){
                 input "sprinkler12", "capability.switch", title: "Turn on these switches...", multiple:true, required: false, submitOnChange: true
                 input "sprinkler12valve", "capability.valve", title: "Open these valves...", multiple:true, required: false, submitOnChange: true
+                input "sprinkler12Duration", "number", title: "For this many minutes...", required: true, defaultValue: 30, submitOnChange: true
             }
              if(settings.sprinkler12 || settings.sprinkler12valve){
                 input "sprinkler13", "capability.switch", title: "Turn on these switches...", multiple:true, required: false, submitOnChange: true
                 input "sprinkler13valve", "capability.valve", title: "Open these valves...", multiple:true, required: false, submitOnChange: true
+                input "sprinkler13Duration", "number", title: "For this many minutes...", required: true, defaultValue: 30, submitOnChange: true
             }
              if(settings.sprinkler13 || settings.sprinkler13valve){
                 input "sprinkler14", "capability.switch", title: "Turn on these switches...", multiple:true, required: false, submitOnChange: true
                 input "sprinkler14valve", "capability.valve", title: "Open these valves...", multiple:true, required: false, submitOnChange: true
+                input "sprinkler14Duration", "number", title: "For this many minutes...", required: true, defaultValue: 30, submitOnChange: true
             }
              if(settings.sprinkler14 || settings.sprinkler14valve){
                 input "sprinkler15", "capability.switch", title: "Turn on these switches...", multiple:true, required: false, submitOnChange: true
                 input "sprinkler15valve", "capability.valve", title: "Open these valves...", multiple:true, required: false, submitOnChange: true
+                input "sprinkler15Duration", "number", title: "For this many minutes...", required: true, defaultValue: 30, submitOnChange: true
             }
              if(settings.sprinkler15 || settings.sprinkler15valve){
                 input "sprinkler16", "capability.switch", title: "Turn on these switches...", multiple:true, required: false, submitOnChange: true
                 input "sprinkler16valve", "capability.valve", title: "Open these valves...", multiple:true, required: false, submitOnChange: true
+                input "sprinkler16Duration", "number", title: "For this many minutes...", required: true, defaultValue: 30, submitOnChange: true
             }
             
             paragraph "<hr><h2>Rain delay</h2>"
@@ -218,6 +230,7 @@ def allOff(){
 def startSprinkler(){
     // Start sprinkler
     
+    def sprinklerDuration = settings."sprinkler${state.currentSprinkler}Duration"
     logDebug "Starting sprinkler set ${state.currentSprinkler} for ${sprinklerDuration} minutes."
     
     this."setSprinkler${state.currentSprinkler}"('on')
