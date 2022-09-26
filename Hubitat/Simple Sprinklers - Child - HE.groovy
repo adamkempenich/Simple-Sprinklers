@@ -139,6 +139,9 @@ def childSetup() {
                     description: "Logs data for debugging. (Default: On)", defaultValue: true,
                     required: true, displayDuringSetup: true)
 
+            paragraph "<hr><h2>Pause</h2>"
+            input "pauseSchedule", "bool", title: "Pause schedule", description: "Pause the schedule", defaultValue: false, required: false, submitOnChange: true
+
             label title: "<h2>Enter a name for this setup (optional)</h2>", required: false  
         }
     }
@@ -179,6 +182,10 @@ def beginSprinklerProcess(){
     logDebug "Rain delay days: ${rainDelayDays}"
     if (rainDelayDays != null && rainDelayDays != 0){
         logDebug "Rain delay is active. Not running automation."
+        return
+    }
+    if (pauseSchedule){
+        logDebug "Schedule is paused. Not running automation."
         return
     }
     logDebug "Beginning scheduled sprinklers"
